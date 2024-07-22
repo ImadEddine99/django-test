@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crud_test',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'crud_test.middleware.DatabaseRoutingMiddleware',
 ]
 
 ROOT_URLCONF = 'crud_test.urls'
@@ -78,35 +80,35 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    #   'default': {
-    #     'ENGINE': 'django.db.backends.mysql', 
-    #     'NAME': 'kalanke_bdd',
-    #     'USER': 'root',
-    #     'PASSWORD': '',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    #     'OPTIONS': {
-    #         'charset': 'utf8mb4',
-    #     },
-    # },
-    # 'test1': {
-    #     'ENGINE': 'django.db.backends.mysql', 
-    #     'NAME': 'test_1',
-    #     'USER': 'root',
-    #     'PASSWORD': '',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    # },
-    # 'test_1': {
-    #     'ENGINE': 'django.db.backends.mysql', 
-    #     'NAME': 'test1',
-    #     'USER': 'root',
-    #     'PASSWORD': '',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    # },
+      'test_3': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'test_3',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
+    },
+    'test_1': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'test_1',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    },
+    'test_2': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'test_2',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    },
 }
-
+DATABASE_ROUTERS = ["crud_test.db_router.DatabaseRouter_test_1","crud_test.db_router.DatabaseRouter_test_2","crud_test.db_router.DatabaseRouter_test_3"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

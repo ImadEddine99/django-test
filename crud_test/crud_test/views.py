@@ -44,6 +44,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.base import ContentFile, File
 import os
 
+from .models import Images
+
 
 def salutView(request):
     return HttpResponse('Salut les gens')
@@ -57,3 +59,9 @@ class testView(APIView):
 class PasDeHack(APIView):
     def get(self, request):
         return JsonResponse({ 'msg': 'Pas de hack' })    
+
+class getImagesFromTest_2(APIView):
+    def post(self, request):
+        image_id=request.data['image_id']
+        image_link=Images.objects.using("test_2").filter(id=image_id).first().link
+        return JsonResponse({ 'image_link': image_link })  
