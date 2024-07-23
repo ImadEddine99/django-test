@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'crud_test.middleware.DatabaseRoutingMiddleware',
+    # 'middleware.DatabaseRoutingMiddleware',
 ]
 
 ROOT_URLCONF = 'crud_test.urls'
@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'crud_test.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
       'test_3': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'test_3',
@@ -91,7 +91,7 @@ DATABASES = {
             'charset': 'utf8mb4',
         },
     },
-    'test_1': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'test_1',
         'USER': 'root',
@@ -108,7 +108,7 @@ DATABASES = {
         'PORT': '3306',
     },
 }
-DATABASE_ROUTERS = ["crud_test.db_router.DatabaseRouter_test_1","crud_test.db_router.DatabaseRouter_test_2","crud_test.db_router.DatabaseRouter_test_3"]
+# DATABASE_ROUTERS = ["crud_test.db_router.DatabaseRouter_test_1","crud_test.db_router.DatabaseRouter_test_2","crud_test.db_router.DatabaseRouter_test_3"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

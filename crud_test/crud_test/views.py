@@ -44,7 +44,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.base import ContentFile, File
 import os
 
-from .models import Images
+from .models import Centers, Images
 
 
 def salutView(request):
@@ -65,3 +65,8 @@ class getImagesFromTest_2(APIView):
         image_id=request.data['image_id']
         image_link=Images.objects.using("test_2").filter(id=image_id).first().link
         return JsonResponse({ 'image_link': image_link })  
+class getCenterFromTest_1(APIView):
+    def post(self, request):
+        center_id=request.data['center_id']
+        center_name=Centers.objects.db_manager("default").filter(id=center_id).first().name
+        return JsonResponse({ 'center_name': center_name }) 

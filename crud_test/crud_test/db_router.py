@@ -10,7 +10,7 @@ class DatabaseRouter_test_1:
         return True
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        return True
+        return db == 'test_1'
     
 class DatabaseRouter_test_2:
     def db_for_read(self, model, **hints):
@@ -23,7 +23,7 @@ class DatabaseRouter_test_2:
         return True
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        return True
+        return db == 'test_2'
     
 class DatabaseRouter_test_3:
     def db_for_read(self, model, **hints):
@@ -36,4 +36,4 @@ class DatabaseRouter_test_3:
         return True
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        return True
+        return db == 'test_3'

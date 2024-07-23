@@ -14,16 +14,19 @@ from .managers import CustomUserManager
 class Centers(models.Model):
     name= models.TextField()
 
-    db_table='centers'
+    class Meta:
+        db_table='centers'
 
 class Images(models.Model):
     link= models.TextField()
     name= models.TextField()
 
-    db_table='images'
+    class Meta:
+        db_table='images'
 
 class Colors(models.Model):
     name= models.TextField()
     color_code_hex= models.TextField()
 
-    db_table='colors'
+    class Meta:
+        db_table='colors'

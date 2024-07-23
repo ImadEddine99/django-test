@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import getImagesFromTest_2, salutView,testView
+from .views import getCenterFromTest_1, getImagesFromTest_2, salutView,testView
 
 
 
@@ -33,4 +33,5 @@ urlpatterns = [
     path('test/', salutView),
     path('testView/', testView.as_view()),
     path('api/get-images/', getImagesFromTest_2.as_view()),
+    path('api/get-centers/', getCenterFromTest_1.as_view()),
 ]
